@@ -24,7 +24,7 @@ namespace UnicamMath
                     cateto1 = double.Parse(cateto1Testuale, CultureInfo.CurrentCulture); // Interpreta il metodo di rappresentazione dei numeri in base al thread corrente.
                 } catch(Exception ex) {
                     Console.WriteLine("Non ho capito. Ritenta.");
-                    continue;
+                    continue; // Chiede di nuovo
                 }
                 break;
             }
@@ -37,16 +37,15 @@ namespace UnicamMath
                     cateto2 = double.Parse(cateto2Testuale, CultureInfo.CurrentCulture); // Interpreta il metodo di rappresentazione dei numeri in base al thread corrente.
                 } catch(Exception ex) {
                     Console.WriteLine("Non ho capito. Ritenta.");
-                    continue;
+                    continue; // Chiede di nuovo
                 }
                 break;
             }
 
-            
+            // Calcolo l'ipotenusa con il teorema di Pitagora. Riferimento: https://it.wikipedia.org/wiki/Teorema_di_Pitagora.
+            ipotenusa = Math.Sqrt(Math.Pow(cateto1, 2) + Math.Pow(cateto2, 2));
 
-            //TO DO
-
-            Console.WriteLine($"L'ipotenusa misura {ipotenusa}");
+            Console.WriteLine($"L'ipotenusa misura {ipotenusa.ToString("N2")}"); // Stampa due cifre decimali al massimo.
             Console.WriteLine($"I tre angoli interni misurano {angolo1} gradi, {angolo2} gradi e {angolo3} gradi.");
 
             Console.ReadKey();

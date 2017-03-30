@@ -9,5 +9,4 @@ Dati i cateti, calcola l'ipotenusa e gli angoli interni (in gradi) di un triango
 5. *Nice-to-have*: A scopo di migliorare la leggibilità del risultato, formattare (cioè convertire a string) i valori dell'ipotenusa e degli angoli in modo che siano visualizzate al massimo due cifre decimali. La documentazione che riguarda la formattazione del tipo `double` si trova qui: [https://msdn.microsoft.com/it-it/library/kfsatb94(v=vs.110).aspx](https://msdn.microsoft.com/it-it/library/kfsatb94(v=vs.110).aspx)
 
 ## Situazione attuale
-Siamo appena all'inizio dell'implementazione, nel programma sono state soltanto inizializzate delle variabili.
-Completare il programma affinché sia conforme alla specifica.
+Manca il calcolo degli angoli.
