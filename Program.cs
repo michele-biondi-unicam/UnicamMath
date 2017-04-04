@@ -16,31 +16,8 @@ namespace UnicamMath
 
             Console.WriteLine("Questo programma calcola l'ipotenusa e gli angoli interni fornendo la lunghezza di due cateti");
 
-            // Chiedo all'utente la lunghezza del primo cateto finchè non viene inserito un valore accettabile.
-            while(true){
-                Console.Write("Inserisci la lunghezza del primo cateto: ");
-                string cateto1Testuale = Console.ReadLine();
-                try{
-                    cateto1 = double.Parse(cateto1Testuale, CultureInfo.CurrentCulture); // Interpreta il metodo di rappresentazione dei numeri in base al thread corrente.
-                } catch(Exception ex) {
-                    Console.WriteLine("Non ho capito. Ritenta.");
-                    continue; // Chiede di nuovo
-                }
-                break;
-            }
-
-            // Chiedo all'utente la lunghezza del secondo cateto finchè non viene inserito un valore accettabile.
-            while(true){
-                Console.Write("Inserisci la lunghezza del secondo cateto: ");
-                string cateto2Testuale = Console.ReadLine();
-                try{
-                    cateto2 = double.Parse(cateto2Testuale, CultureInfo.CurrentCulture); // Interpreta il metodo di rappresentazione dei numeri in base al thread corrente.
-                } catch(Exception ex) {
-                    Console.WriteLine("Non ho capito. Ritenta.");
-                    continue; // Chiede di nuovo
-                }
-                break;
-            }
+            cateto1 = ChiediCatetoAllUtente("Inserisci la lunghezza del primo cateto: ");
+            cateto2 = ChiediCatetoAllUtente("Inserisci la lunghezza del secondo cateto: ");
 
             // Calcolo l'ipotenusa con il teorema di Pitagora. Riferimento: https://it.wikipedia.org/wiki/Teorema_di_Pitagora.
             ipotenusa = Math.Sqrt(Math.Pow(cateto1, 2) + Math.Pow(cateto2, 2));
@@ -60,5 +37,26 @@ namespace UnicamMath
         private static double RadiantiAGradi(double radianti){
             return (radianti * 180) / Math.PI;
         }
+
+        // Metodo che richiede cateti all'utenti
+        private static double ChiediCatetoAllUtente(string messaggio) {
+            while(true){
+                
+                Console.Write(messaggio);
+                
+                string cateto1Testuale = Console.ReadLine();
+                if(double.TryParse(cateto1Testuale, out double cateto))
+                    return cateto;
+                else{
+                    Console.WriteLine("Non ho capito. Ritenta.");
+                    continue; // Chiede di nuovo
+                }
+            }
+        }
+    
+    
+    
+    
     }
+
 }
